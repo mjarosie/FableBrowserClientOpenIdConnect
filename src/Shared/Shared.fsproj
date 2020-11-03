@@ -4,7 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="OpenIdConnectClient.fs" />
     <Compile Include="Shared.fs" />
   </ItemGroup>
   <ItemGroup>

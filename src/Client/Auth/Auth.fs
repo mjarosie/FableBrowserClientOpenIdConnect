@@ -1,6 +1,6 @@
 module Auth
 
-open OpenIdConnectClient
+open Fable.OidcClient
 open Fable.Core.JsInterop
 open Browser
 

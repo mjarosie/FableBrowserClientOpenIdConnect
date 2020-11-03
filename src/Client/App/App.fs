@@ -1,7 +1,7 @@
 module App
 
 open Browser.Dom
-open OpenIdConnectClient
+open Fable.OidcClient
 open Fable.Core.JsInterop
 open Thoth.Fetch
 open Thoth.Json

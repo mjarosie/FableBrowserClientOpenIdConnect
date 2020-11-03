@@ -44,6 +44,7 @@ namespace IdentityServer
                     ClientId = "js",
                     ClientName = "JavaScript Client",
                     AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
                     RequireClientSecret = false,
 
                     RedirectUris =           { "https://localhost:5003/callback.html" },

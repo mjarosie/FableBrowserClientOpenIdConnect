@@ -1,6 +1,6 @@
 # Fable App with OpenId Connect authentication
 
-This repository reproduces the exact effect achieved by following the "[Adding a JavaScript client](https://identityserver4.readthedocs.io/en/latest/quickstarts/4_javascript_client.html)" tutorial of IdentityServer4, but in F#.
+This repository reproduces the exact effect achieved by following the "[Adding a JavaScript client](https://identityserver4.readthedocs.io/en/latest/quickstarts/4_javascript_client.html)" tutorial of IdentityServer4, but in F#. [Here's](https://mjarosie.github.io/dev/2020/11/04/fable-with-openid-connect.html) a post explaining the client configuration and code step by step.
 
 ## Requirements
 

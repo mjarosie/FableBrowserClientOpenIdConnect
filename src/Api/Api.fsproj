@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.fsproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Api.fs" />
   </ItemGroup>
 

@@ -5,7 +5,19 @@ open Fable.OidcClient
 open Fable.Core.JsInterop
 open Thoth.Fetch
 open Thoth.Json
-open Shared
+
+let log (arguments: string list) =
+    let results = document.getElementById("results")
+    results.innerText <- "";
+
+    List.map (fun (msg) -> 
+        results.innerText <- results.innerText + msg + "\r\n";
+    ) arguments |> ignore
+    ()
+
+type Claim =
+    { Type : string
+      Value : string }
 
 let settings: UserManagerSettings = 
     !!{| 
@@ -27,15 +39,6 @@ let loginButton = document.getElementById("login") :?> Browser.Types.HTMLButtonE
 let apiButton = document.getElementById("api") :?> Browser.Types.HTMLButtonElement
 let logoutButton = document.getElementById("logout") :?> Browser.Types.HTMLButtonElement
 
-let log (arguments: string list) =
-    let results = document.getElementById("results")
-    results.innerText <- "";
-
-    List.map (fun (msg) -> 
-        results.innerText <- results.innerText + msg + "\r\n";
-    ) arguments |> ignore
-    ()
-
 loginButton.onclick <- fun _ ->
     mgr.signinRedirect()
 
@@ -45,12 +48,12 @@ apiButton.onclick <- fun _ -> promise {
     match user with
     | Some u -> 
         let authHeader: Fetch.Types.HttpRequestHeaders = Fetch.Types.HttpRequestHeaders.Authorization ("Bearer " + u.access_token)
-        console.log (sprintf "%A" authHeader)
         let! claims = Fetch.get<_, Claim list> (url = "https://localhost:6001/identity", headers = [authHeader], caseStrategy=CamelCase)
         let json = Encode.Auto.toString(4, claims)
         log([json])
     | _ -> log(["Log in first!"])
 }
+
 logoutButton.onclick <- fun _ ->
     mgr.signoutRedirect()
 

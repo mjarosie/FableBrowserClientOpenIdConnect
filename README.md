@@ -20,11 +20,10 @@ You might need to accept the risk of invalid local certificate in your browser.
 
 ### F#
 
-The solution consists of 5 projects:
+The solution consists of 4 projects:
 
 - `Api`: [Saturn framework](https://saturnframework.org/) web server that returns the user identity when called under `/identity`, works exactly the same as the API defined in "[Protecting an API using Client Credentials](https://identityserver4.readthedocs.io/en/latest/quickstarts/1_client_credentials.html) tutorial of IdentityServer4.
 - `IdentityServer`: Identity Provider service, works exactly the same as the Identity Provider defined in "[Protecting an API using Client Credentials](https://identityserver4.readthedocs.io/en/latest/quickstarts/1_client_credentials.html) tutorial of IdentityServer4.
-- `Shared`: Shared resources (in this case - just type definition)
 - `Client` directory contains these two projects:
 	- `App`: Main logic of the SPA (single page application)
 	- `Auth`: Small bit of code needed for handling the OpenId Protocol redirection.

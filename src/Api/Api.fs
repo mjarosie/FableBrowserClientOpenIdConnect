@@ -3,7 +3,6 @@
 open Saturn
 open Giraffe.Core
 open Giraffe.ResponseWriters
-open Shared
 open Microsoft.AspNetCore.Http
 open Microsoft.AspNetCore.Authentication.JwtBearer
 open Microsoft.IdentityModel.Tokens
@@ -11,6 +10,10 @@ open Microsoft.IdentityModel.Tokens
 let api = pipeline {
     requires_authentication (Giraffe.Auth.challenge "Bearer")
 }
+
+type Claim =
+    { Type : string
+      Value : string }
 
 let identityController : HttpHandler =
     fun (next : HttpFunc) (ctx: HttpContext) ->
